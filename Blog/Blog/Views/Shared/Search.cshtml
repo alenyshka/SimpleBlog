@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+}
+
+<div class="row">
+    @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @class = "form-horizontal", @id = "search-form" }))
+    {
+        <div class="form-group">
+            <div class="col-sm-4">
+                @Html.TextBox("name", null, new { @required = "required", @class = "form-control" })
+                @Html.ValidationMessage("name")
+            </div>
+            <div class="col-sm-4">
+                <input type="submit" value="Search" class="btn btn-default" />
+            </div>
+        </div>
+    }
+</div>

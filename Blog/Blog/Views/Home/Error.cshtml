@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Error";
+}
+@model List<ModelError>
+    <div class="text-danger">
+    @foreach (var error in Model)
+    {
+        <h4>@error.ErrorMessage</h4>;
+    }
+</div>

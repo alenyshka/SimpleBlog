@@ -1,0 +1,16 @@
+﻿@model List<Blog.Models.Article>
+
+@{
+    ViewBag.Title = "Blog";
+}
+
+<div class="container">
+    @Html.Partial("List", Model)
+    <div class="row">
+        @foreach (var article in Model)
+        {
+            @Html.Partial("Info", @article)
+            <hr />
+        }
+    </div>
+</div>

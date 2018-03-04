@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "List";
+}
+@model List<Blog.Models.Article>
+
+
+<div>
+    <ul>
+        @foreach (var title in Model.Select(m => new { m.Title, m.Id }))
+        {
+            <li>
+                @Html.ActionLink(@title.Title, "Info", "Home", new { @id = @title.Id }, null)
+            </li>
+        }
+    </ul>
+</div>
+

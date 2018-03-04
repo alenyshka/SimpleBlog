@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Info";
+}
+
+@model Blog.Models.Article
+
+<div class="row">
+    <article>
+        <header>
+            @Html.ValidationMessageFor(m => m.Id)
+            <h2>@Model.Title</h2>
+            <small>
+                @Model.Author.FullName
+                @if (User.IsInRole("Admin") || @Model.IsAuthor(User.Identity.Name))
+                {
+                    @Html.ActionLink("Edit ", "Edit", "Home", new { @id = @Model.Id }, null)
+                    @Html.ActionLink("Delete", "Delete", "Home", new { @id = @Model.Id }, null)
+                }
+            </small>
+        </header>
+        <content>
+            @Model.Content
+        </content>
+    </article>
+</div>
+
+
+
